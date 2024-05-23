@@ -1,9 +1,10 @@
-import trueskill
-from collections import defaultdict
 import json
 import pathlib
-from tabulate import tabulate
+from collections import defaultdict
 from datetime import datetime
+
+import trueskill
+from tabulate import tabulate
 
 data = json.loads(pathlib.Path("onlynoobs.json").read_text())
 

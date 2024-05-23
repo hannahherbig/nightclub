@@ -1,15 +1,15 @@
 import json
 import pathlib
-import requests
-from ratelimit import limits, RateLimitException
 import tomllib
 
-from backoff import on_exception, expo
+import requests
+from backoff import expo, on_exception
+from ratelimit import RateLimitException, limits
 
-with open('config.toml', 'rb') as f:
+with open("config.toml", "rb") as f:
     config = tomllib.load(f)
 
-APIKEY = config['apikey']
+APIKEY = config["apikey"]
 
 QUERY_EVENT_SETS = """
 query EventSets($eventId: ID!, $page: Int!, $perPage: Int!) {

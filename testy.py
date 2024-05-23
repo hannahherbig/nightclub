@@ -1,10 +1,11 @@
-import requests
 import tomllib
 
-with open('config.toml', 'rb') as f:
+import requests
+
+with open("config.toml", "rb") as f:
     config = tomllib.load(f)
 
-APIKEY = config['apikey']
+APIKEY = config["apikey"]
 
 QUERY = """
 query getEventId($slug: String) {
@@ -14,9 +15,7 @@ query getEventId($slug: String) {
   }
 }
 """
-VARIABLES = {
-  "slug": "tournament/the-nightclub-s9e15-os-nyc/event/melee-singles"
-}
+VARIABLES = {"slug": "tournament/the-nightclub-s9e15-os-nyc/event/melee-singles"}
 
 while True:
     resp = requests.post(
